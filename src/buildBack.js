@@ -9,7 +9,7 @@ const refreshDockerName = () => {
     dockerName = new Date().toString()
 }
 
-const buildFront = async () => {
+const buildBack = async () => {
     spinner.start(`更新最新代码`);
     await execa('git', [
         'pull',
@@ -55,4 +55,4 @@ const buildFront = async () => {
     spinner.succeed();
 }
 
-module.exports = buildFront;
+module.exports = buildBack;

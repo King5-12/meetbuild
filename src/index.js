@@ -1,6 +1,7 @@
 const Koa = require('koa');
 const Router = require('koa-router');
 const buildFront = require('./buildFront');
+const buildBack = require('./buildBack');
 
 const app = new Koa();
 const router = new Router();
@@ -8,11 +9,11 @@ const port = process.env.PORT || 3000
 
 
 
-router.get("/buildFront", () => {
+router.post("/buildFront", () => {
     buildFront()
 })
-router.get("/buildBack", () => {
-
+router.post("/buildBack", () => {
+    buildBack()
 })
 
 app.use(router.routes());
