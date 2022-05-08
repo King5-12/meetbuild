@@ -24,7 +24,7 @@ const buildBack = async () => {
             'stop',
             dockerName
         ], {
-            cwd: FRONT_PATH,
+            cwd: BACK_PATH,
         });
         refreshDockerName()
         spinner.succeed();
@@ -37,7 +37,7 @@ const buildBack = async () => {
         'meetback',
         '.',
     ], {
-        cwd: FRONT_PATH,
+        cwd: BACK_PATH,
     });
     spinner.succeed();
     spinner.start(`开始发布镜像`);
@@ -50,7 +50,7 @@ const buildBack = async () => {
         '-itd',
         'meetback',
     ], {
-        cwd: FRONT_PATH,
+        cwd: BACK_PATH,
     });
     spinner.succeed();
 }
