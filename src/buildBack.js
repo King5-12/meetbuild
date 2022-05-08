@@ -2,7 +2,7 @@ const execa = require('execa');
 const { BACK_PATH } = require("./constant")
 const ora = require('ora');
 
-let dockerName = ""
+dockerName = ""
 const spinner = ora();
 
 const refreshDockerName = () => {
@@ -28,6 +28,8 @@ const buildBack = async () => {
         });
         refreshDockerName()
         spinner.succeed();
+    } else {
+        refreshDockerName()
     }
 
     spinner.start(`开始构建镜像`);
