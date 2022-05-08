@@ -1,0 +1,19 @@
+{
+    "name": "meetbuild",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon run ./src/index.js",
+        "prod": "node run ./src/index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "execa": "^5.1.1",
+        "koa": "^2.13.4",
+        "koa-router": "^10.1.1",
+        "ora": "^5.4.1"
+    }
+}
