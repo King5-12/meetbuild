@@ -1,12 +1,13 @@
 const execa = require('execa');
 const { BACK_PATH } = require("./constant")
 const ora = require('ora');
+const stringRandom = require('string-random');
 
 dockerName = ""
 const spinner = ora();
 
 const refreshDockerName = () => {
-    dockerName = new Date().toString()
+    dockerName = stringRandom()
 }
 
 const buildBack = async () => {
