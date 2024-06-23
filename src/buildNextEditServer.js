@@ -1,5 +1,5 @@
 const execa = require('execa');
-const { BACK_PATH } = require('./constant');
+const { NEXT_EDIT_PATH } = require('./constant');
 const ora = require('ora');
 const stringRandom = require('string-random');
 
@@ -13,7 +13,7 @@ const refreshDockerName = () => {
 const buildNextEditServer = async () => {
   spinner.start(`更新最新代码`);
   await execa('git', ['pull'], {
-    cwd: BACK_PATH,
+    cwd: NEXT_EDIT_PATH,
   });
   spinner.succeed();
 
@@ -38,7 +38,7 @@ const buildNextEditServer = async () => {
     'docker',
     ['run', '-p', '3001:3001', '--name', dockerName, '-itd', 'nextEditServer'],
     {
-      cwd: BACK_PATH,
+      cwd: NEXT_EDIT_PATH,
     }
   );
   spinner.succeed();
