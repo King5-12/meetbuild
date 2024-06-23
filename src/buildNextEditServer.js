@@ -29,14 +29,14 @@ const buildNextEditServer = async () => {
   }
 
   spinner.start(`开始构建镜像 buildNextEditServer`);
-  await execa('docker', ['build', '-t', 'nextEditServer', '.'], {
+  await execa('docker', ['build', '-t', 'nexteditserver', '.'], {
     cwd: NEXT_EDIT_PATH,
   });
   spinner.succeed();
   spinner.start(`开始发布镜像 buildNextEditServer`);
   await execa(
     'docker',
-    ['run', '-p', '3001:3001', '--name', dockerName, '-itd', 'nextEditServer'],
+    ['run', '-p', '3001:3001', '--name', dockerName, '-itd', 'nexteditserver'],
     {
       cwd: NEXT_EDIT_PATH,
     }
