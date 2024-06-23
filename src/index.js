@@ -2,6 +2,7 @@ const Koa = require('koa');
 const Router = require('koa-router');
 const buildFront = require('./buildFront');
 const buildBack = require('./buildBack');
+const buildNextEditServer = require('./buildNextEditServer');
 
 const app = new Koa();
 const router = new Router();
