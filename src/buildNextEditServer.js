@@ -19,9 +19,14 @@ const buildNextEditServer = async () => {
 
   if (dockerName) {
     spinner.start(`开始结束上一个镜像 buildNextEditServer`);
-    await execa('docker', ['stop', dockerName], {
-      cwd: NEXT_EDIT_PATH,
-    });
+    try {
+      await execa('docker', ['stop', dockerName], {
+        cwd: NEXT_EDIT_PATH,
+      });
+    } catch (e) {
+      spinner.start(`停止上一个镜像失败 buildBack`);
+    }
+
     refreshDockerName();
     spinner.succeed();
   } else {
@@ -41,6 +46,7 @@ const buildNextEditServer = async () => {
       cwd: NEXT_EDIT_PATH,
     }
   );
+  spinner.start(`镜像发布完成 buildNextEditServer`);
   spinner.succeed();
 };
 

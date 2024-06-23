@@ -19,9 +19,13 @@ const buildBack = async () => {
 
   if (dockerName) {
     spinner.start(`开始结束上一个镜像 buildBack`);
-    await execa('docker', ['stop', dockerName], {
-      cwd: BACK_PATH,
-    });
+    try {
+      await execa('docker', ['stop', dockerName], {
+        cwd: BACK_PATH,
+      });
+    } catch (e) {
+      spinner.start(`停止上一个镜像失败 buildBack`);
+    }
     refreshDockerName();
     spinner.succeed();
   } else {
@@ -41,6 +45,7 @@ const buildBack = async () => {
       cwd: BACK_PATH,
     }
   );
+  spinner.start(`镜像发布完成 buildBack`);
   spinner.succeed();
 };
 
